@@ -34,7 +34,7 @@ export type Product = {
 export const eComAnalysis = (products: Product[]) => {
   return {
     filterProducts: () => {
-      return products.filter((val) => val.stock != 0 && val.price > 50);
+      return products.filter((val) => val.stock > 0 && val.price > 50);
     },
     getAvgRatings: () => {
       let overall = 0;
@@ -43,10 +43,10 @@ export const eComAnalysis = (products: Product[]) => {
       products.map((val, i) => {
         if (val.category === "Electronics") {
           overall += val.rating;
-          dividedBy += i;
+          dividedBy += 1;
         }
       });
-      return dividedBy;
+      return (overall / dividedBy).toFixed(2);
     },
     getHighestRatings: () => {
       const sortedOnRatings = products.sort((a, b) => a.rating - b.rating);
@@ -54,7 +54,14 @@ export const eComAnalysis = (products: Product[]) => {
       return highestRatingProduct.map((val) => val.name);
     },
     getTotalValue: () => {
-      return products.reduce((acc, cur) => acc + cur.price * cur.stock, 0);
+      const productPriceByCategory: { [category: string]: number } = {};
+      products.map((val) => {
+        if (!productPriceByCategory[val.category]) {
+          productPriceByCategory[val.category] = 0;
+        }
+        productPriceByCategory[val.category] += val.price * val.stock;
+      });
+      return productPriceByCategory;
     },
     getSummary: () => {
       let productArray: { id: number; name: string; price: number }[] = [];
@@ -68,14 +75,13 @@ export const eComAnalysis = (products: Product[]) => {
   };
 };
 
-const getTotalValueOnEachCategory = (products: Product[]) => {
-  const mycatogery = {};
-  products.forEach((val) => {
-    let keys = Object.keys(mycatogery);
-    keys.map((cur, i) => {
-    
-        mycatogery.[keys[i]] += val.price;
-      
-    });
-  });
-};
+// getTotalValue: () => {
+//   const productPriceByCategory: Record<string, number> = {};
+//   products.forEach(product => {
+//     if (!productPriceByCategory[product.category]) {
+//       productPriceByCategory[product.category] = 0;
+//     }
+//     productPriceByCategory[product.category] += product.price * product.stock;
+//   });
+//   return productPriceByCategory;
+// },

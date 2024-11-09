@@ -81,53 +81,56 @@ import { eComAnalysis } from "./Day4";
 
 // Day 4
 
-const products = [
-  {
-    id: 1,
-    name: "Wireless Headphones",
-    price: 89.99,
-    category: "Electronics",
-    rating: 4.5,
-    stock: 45,
-  },
-  {
-    id: 2,
-    name: "Running Shoes",
-    price: 59.99,
-    category: "Sports",
-    rating: 4.8,
-    stock: 30,
-  },
-  {
-    id: 3,
-    name: "Smart Watch",
-    price: 199.99,
-    category: "Electronics",
-    rating: 4.6,
-    stock: 15,
-  },
-  {
-    id: 4,
-    name: "Yoga Mat",
-    price: 29.99,
-    category: "Sports",
-    rating: 4.3,
-    stock: 0,
-  },
-  {
-    id: 5,
-    name: "Laptop",
-    price: 899.99,
-    category: "Electronics",
-    rating: 4.7,
-    stock: 10,
-  },
-];
+// const products = [
+//   {
+//     id: 1,
+//     name: "Wireless Headphones",
+//     price: 89.99,
+//     category: "Electronics",
+//     rating: 4.5,
+//     stock: 45,
+//   },
+//   {
+//     id: 2,
+//     name: "Running Shoes",
+//     price: 59.99,
+//     category: "Sports",
+//     rating: 4.8,
+//     stock: 30,
+//   },
+//   {
+//     id: 3,
+//     name: "Smart Watch",
+//     price: 199.99,
+//     category: "Electronics",
+//     rating: 4.6,
+//     stock: 15,
+//   },
+//   {
+//     id: 4,
+//     name: "Yoga Mat",
+//     price: 29.99,
+//     category: "Sports",
+//     rating: 4.3,
+//     stock: 0,
+//   },
+//   {
+//     id: 5,
+//     name: "Laptop",
+//     price: 899.99,
+//     category: "Electronics",
+//     rating: 4.7,
+//     stock: 10,
+//   },
+// ];
 
-const product = eComAnalysis(products);
+// const product = eComAnalysis(products);
 
-// console.log(product.filterProducts());
-// console.log(product.getAvgRatings());
-console.log(product.getHighestRatings());
-// console.log(product.getTotalValue());
-// console.log(product.getSummary());
+// console.log(
+//   "filtered more than 50$ and are in stock",
+//   product.filterProducts()
+// );
+// console.log("get Average Ratings in electronics", product.getAvgRatings());
+// console.log("get top 3 high rated products", product.getHighestRatings());
+// console.log("get total value in every category", product.getTotalValue());
+// console.log("get summary of products", product.getSummary());
